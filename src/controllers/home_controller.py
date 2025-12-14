@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from services.home_service import HomeService
+from src.services.home_service import HomeService
 
 router=APIRouter()
 

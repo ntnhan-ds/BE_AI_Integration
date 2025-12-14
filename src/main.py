@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from controllers.home_controller import router as HomeRouter
-from controllers.ai_controller import router as AIRouter
-
+from src.controllers.home_controller import router as HomeRouter
+from src.controllers.user_controller import router as UserRouter
+from src.controllers.text_summary_controller import router as TextSummaryRouter
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -20,8 +20,8 @@ def create_app() -> FastAPI:
     )
 
     app.include_router(HomeRouter, prefix="/home", tags=["Home"])
-    app.include_router(AIRouter, prefix="/ai", tags=["AI"])
-
+    app.include_router(UserRouter, prefix="/user", tags=["User"])
+    app.include_router(TextSummaryRouter, prefix="/text_summary", tags=["AI"])
 
     return app
 
